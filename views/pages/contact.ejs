@@ -20,8 +20,10 @@
 					</header> 
 					<div class="container">
 						<h3>Formulaire</h3>
-
-						<form method="post" action="#">
+						<%if(false) {%>
+						<%= message %>
+						<%}%>
+						<form method="post" action="send">
 							<div class="row uniform">
 								<div class="3u 12u$(xsmall)">
 									<input type="text" name="name" id="name" value="" placeholder="Nom" />
@@ -32,32 +34,12 @@
 								<div class="5u$ 12u$(xsmall)">
 									<input type="email" name="email" id="email" value="" placeholder="Email" />
 								</div>
-								<!-- Break -->
 								<div class="11u$">
-									<div class="select-wrapper">
-										<select name="category" id="category">
-											<option value=""></option>
-											<!--
-											<option value="1">Programme</option>
-											<option value="1">Inscription</option>
-											<option value="1">Portes ouvertes</option>
-											<option value="1">Informations générales</option>
-											-->
-											<option value="1">Contactez-nous</option>
-											<!-- <option value="1"></option> -->
-										</select>
-									</div>
+									<input type="text" name="subject" id="subject" value="" placeholder="Sujet" />
 								</div>
-								<!-- Break -->
-								<!-- <div class="6u$ 12u$(small)">
-									<input type="checkbox" id="human" name="human" checked>
-									<label for="human">Je ne suis pas un robot</label>
-								</div> -->
-								<!-- Break -->
 								<div class="11u$">
 									<textarea name="message" id="message" placeholder="Votre message" rows="6"></textarea>
 								</div>
-								<!-- Break -->
 								<div class="11u$">
 									<ul class="actions">
 										<li><input type="submit" value="Envoyer" /></li>

@@ -3101,7 +3101,7 @@
 		.wrapper.style3 {
 			background-color: #000;
 			color: #bfbfbf;
-			background-image: url(../../images/bg.jpg);
+			background-image: url(../images/bg.jpg);
 			background-size: cover;
 			background-attachment: fixed;
 			background-position: center;
@@ -4864,14 +4864,12 @@ h2 {
         padding: 5vw 20px 2vw; } }
 
 /*# sourceMappingURL=popup.css.map */
-
 div#dd-success {
   display: none;
   text-align: center;
   font-size: 24px;
   margin: 40px 0 20px;
 }
-
 .dd-close {
   background-image: url('../images/close.png');
   background-size: 100%;
@@ -4882,7 +4880,6 @@ div#dd-success {
   padding: 14px;
   margin: 10px;
 }
-
 .dd-btn-close {
   color: #00A550;
   -webkit-transition: all ease-out .2s;
@@ -4891,7 +4888,23 @@ div#dd-success {
   -o-transition: all ease-out .2s;
   transition: all ease-out .2s;
 }
-
 .dd-btn-close:hover {
   color: #006B34;
+}
+
+.channel {
+  color: #008000;
+  font-size: 40px;
+  position: absolute;
+  top: 50px;
+  right: 40px;
+  margin: 0;
+  padding: 0;
+}
+.fourofour {
+  margin: 50vh 0 10vh;
+  padding: 0;
+  font-size: 175px;
+  opacity: 0.1;
+  text-align: center;
 }

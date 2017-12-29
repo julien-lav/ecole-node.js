@@ -1,6 +1,14 @@
+/* Same as the to do app */
 npm install express -save
 npm install ejs -save
 npm install body-parser -save 
 
-/* Same as the to do app */
+/* contact form */
+
+// template // npm install express-handlebars -save
+npm install nodemailer -save
+https://www.youtube.com/watch?v=nF9g1825mwk
+
+22 minutes
+
 
