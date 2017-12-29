@@ -3,7 +3,7 @@ let events = require('events')
 let bodyParser = require('body-parser')
 let nodemailer = require('nodemailer')
 let xoauth2 = require('xoauth2')
-let path = require('path')
+//let path = require('path')
 
 let app = express()
 app.set('view engine', 'ejs') 
@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 // process.env.NODE_ENV
 app.get('/', (req, res) => {res.render('pages/index')})
-app.get('/contact', (req, res) => {res.render('pages/contact')})
+app.get('/contact', (req, res) => {res.render('pages/contact', {message: ""})})
 app.get('/ecran_narration', (req, res) => {res.render('pages/ecran_narration')})
 app.get('/elements', (req, res) => {res.render('pages/elements')})
 app.get('/ensemble', (req, res) => {res.render('pages/ensemble')})
@@ -55,19 +55,33 @@ app.post('/send', (req, res) => {
 			</ul>
 			<h3> Message : ${req.body.message} </h3>
 	`;
-	var transporter = nodemailer.createTransport({
+	/* GMAIL VERSION */
+	let transporter = nodemailer.createTransport({
 	    service: 'gmail',
 	    auth: {
 	        xoauth2: xoauth2.createXOAuth2Generator({
-	            user: 'my.email@gmail.com',
+	            user: 'prepa.cinema.paris@gmail.com',
 	            clientId: 'XXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.apps.googleusercontent.com',
 	            clientSecret: 'XXXXXXXXXXXXXXXXXXXXXXXX',
 	            refreshToken: 'X/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 	        })
 	    }
 	})
+	
+	/* SMTP VERSION */
+	/*
+	let transporter = nodemailer.createTransport({
+        host: 'smtp.ethereal.email',
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+            user: 'w3e4gm4fkqmd7fj5@ethereal.email', // generated ethereal user
+            pass: 'AtFTncDebYxcvusmpX'  // generated ethereal password
+        }
+    });
+	*/
 	var mailOptions = {
-	    from: 'My Name <my.email@gmail.com>',
+	    from: 'My Name <prepa.cinema.paris@gmail.com>',
 	    to: 'receiver.email@gmail.com',
 	    subject: 'Nodemailer test',
 	    text: 'Hello World!!',
@@ -75,9 +89,10 @@ app.post('/send', (req, res) => {
 	}
 	transporter.sendMail(mailOptions, function (err, res) {
 	    if(err){
-	        console.log('Error');
+	        console.log('Error')
 	    } else {
-	        console.log('Email Sent');
+	        console.log('Email Sent')
+			res.render('pages/contact', {message: "L'email a bien était envoyé !"}) 
 	    }
 	})
 })
