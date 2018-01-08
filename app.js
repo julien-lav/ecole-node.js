@@ -60,13 +60,14 @@ app.post('/send', (req, res) => {
 	    service: 'gmail',
 	    auth: {
 	        xoauth2: xoauth2.createXOAuth2Generator({
-	            user: 'prepa.cinema.paris@gmail.com',
-	            clientId: 'XXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.apps.googleusercontent.com',
-	            clientSecret: 'XXXXXXXXXXXXXXXXXXXXXXXX',
-	            refreshToken: 'X/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+	            user: 'info.prepa.cinema@gmail.com',
+	            clientId: '',
+	            clientSecret: '',
+	            refreshToken: ''
 	        })
 	    }
 	})
+	/*  http://denisecase.github.io/2016/10/08/enabling-contact-form/  */
 	
 	/* SMTP VERSION */
 	/*
@@ -80,9 +81,10 @@ app.post('/send', (req, res) => {
         }
     });
 	*/
+
 	var mailOptions = {
-	    from: 'My Name <prepa.cinema.paris@gmail.com>',
-	    to: 'receiver.email@gmail.com',
+	    from: 'Prépa cinéma <prepa.cinema.paris@gmail.com>',
+	    to: 'julien.laville@hotmail.fr',
 	    subject: 'Nodemailer test',
 	    text: 'Hello World!!',
 	    html: output
